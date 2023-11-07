@@ -63,13 +63,13 @@ class _HomescreenWidgetState extends State<HomescreenWidget> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 2),
                                   child: Stack(
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-0.85, 0.03),
+                                            const AlignmentDirectional(-0.85, 0.03),
                                         child: Material(
                                           color: Colors.transparent,
                                           elevation: 5,
@@ -148,6 +148,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget> {
                 'Mobile Developer based in Accra, Ghana',
                 style: TextStyle(
                       fontFamily: 'Rubik',
+                      color: Colors.white,
                     ),
               ),
             ),
@@ -180,7 +181,9 @@ class _HomescreenWidgetState extends State<HomescreenWidget> {
                           alignment: AlignmentDirectional(-0.59, 0.00),
                           child: Text(
                             'Available for hire',
-                            style: TextStyle(),
+                            style: TextStyle(
+                              color: Colors.white
+                            ),
                           ),
                         ),
                         Align(
@@ -227,7 +230,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget> {
                 Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.72, 0.00),
+                      alignment: const AlignmentDirectional(0.72, 0.00),
                       child: Container(
                         width: 126,
                         height: 34,
@@ -244,7 +247,9 @@ class _HomescreenWidgetState extends State<HomescreenWidget> {
                               alignment: AlignmentDirectional(0.22, 0.00),
                               child: Text(
                                 'contact',
-                                style: TextStyle(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                             Align(
@@ -259,11 +264,14 @@ class _HomescreenWidgetState extends State<HomescreenWidget> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: AlignmentDirectional(-0.82, 1.53),
                       child: Text(
                         'credits',
-                        style: TextStyle(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ],
