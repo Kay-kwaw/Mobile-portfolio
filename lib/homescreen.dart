@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomescreenWidget extends StatefulWidget {
   const HomescreenWidget({Key? key}) : super(key: key);
@@ -10,22 +11,25 @@ class HomescreenWidget extends StatefulWidget {
 }
 
 class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerProviderStateMixin{
-  AnimationController? _controller;
-  // ignore: unused_field
-  Animation? _colorAnimation;
-
-  bool isFav = false;
+ 
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,);
+   
     
   }
   
+  void _launchGitHub() async {
+  const url = 'https://github.com';  // Replace with your GitHub URL
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
 
 
@@ -294,7 +298,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                             child: ListTile(
                                               title: const Text("Github"),
                                               onTap: (){
-                                                
+                                                "https://github.com/Kay-kwaw";
                                               },
                                             ),
                                           ),
