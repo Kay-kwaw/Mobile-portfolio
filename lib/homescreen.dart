@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:portfolio/credit_screen.dart';
 import 'package:portfolio/initialscreen.dart';
 import 'package:portfolio/menu.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -422,13 +423,18 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                           ),
                         ),
                       ),
-                      const Align(
+                       Align(
                         alignment: AlignmentDirectional(-0.82, 1.53),
-                        child: Text(
-                          'credits',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 600), child: Creditscreen()));
+                          },
+                          child: const Text(
+                            'credits',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),

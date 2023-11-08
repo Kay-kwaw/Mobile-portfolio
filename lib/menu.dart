@@ -61,7 +61,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment
                 color: Colors.white,
                 iconSize: 35,
                 onPressed: () {
-                Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomPop,duration: Duration(seconds: 1), child: const HomescreenWidget(), childCurrent: this));
+Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 600), child: HomescreenWidget()));
 
                 },
               ),
