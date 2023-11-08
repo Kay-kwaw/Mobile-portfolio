@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:portfolio/initialscreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomescreenWidget extends StatefulWidget {
@@ -13,27 +15,35 @@ class HomescreenWidget extends StatefulWidget {
 }
 
 class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerProviderStateMixin{
+  final Uri _urlit = Uri.parse('https://twitter.com/KwawKumi');
+  final Uri _urlb = Uri.parse('https://mail.google.com/mail/u/0/#inbox?compose=new');
   final Uri _url = Uri.parse('https://github.com/Kay-kwaw');
-  final Uri _urli = Uri.parse('https://twitter.com/home');
-  final Uri _urll = Uri.parse('https://github.com/Kay-kwaw');
-  final Uri _urlb = Uri.parse('https://github.com/Kay-kwaw');
- 
+  final Uri _urll = Uri.parse('https://www.behance.net/kwawkumi');
+  
+
 
   Future<void> _launchUrl() async {
   if (!await launchUrl(_url,)) {
     throw Exception('Could not launch $_url');
   }
 }
-  Future<void> _gmail() async {
-  if (!await launchUrl(_urli,)) {
-    throw Exception('Could not launch $_urli');
+  Future<void> _twitUrl() async {
+  if (!await launchUrl(_urlit,)) {
+    throw Exception('Could not launch $_url');
   }
 }
-//   Future<void> _launchUrl() async {
-//   if (!await launchUrl(_url,)) {
-//     throw Exception('Could not launch $_url');
-//   }
-// }
+  Future<void> _BehanceUrl() async {
+  if (!await launchUrl(_urll,)) {
+    throw Exception('Could not launch $_url');
+  }
+}
+ 
+  Future<void> _GmailUrl() async {
+  if (!await launchUrl(_urlb,)) {
+    throw Exception('Could not launch $_url');
+  }
+}
+ 
 
   @override
   void initState() {
@@ -104,20 +114,26 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                                 ],
                                                 shape: BoxShape.circle,
                                               ),
-                                              child: const Padding(
-                                                padding: EdgeInsetsDirectional
+                                              child:  Padding(
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(15, 15, 0, 0),
-                                                child: Text(
-                                                  'So',
-                                                  style:
-                                                      TextStyle(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            color: Colors.black,
-                                                            fontSize: 13,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomPop,duration: Duration(seconds: 3), child: const HomePageWidget(), childCurrent: this.widget ));
+
+                                                  },
+                                                  child: const Text(
+                                                    'So',
+                                                    style:
+                                                        TextStyle(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              color: Colors.black,
+                                                              fontSize: 13,
+                                                              fontWeight:
+                                                                  FontWeight.bold,
+                                                            ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -266,61 +282,70 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                       return Column(
                                         children: [
                                           const Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: Text("YOU CAN REACH ME \n             HERE",
+                                            padding: EdgeInsets.all(10.0),
+                                            child: Text("YOU CAN REACH ME \n            HERE",
                                              style: TextStyle(
                                               fontFamily: 'Noto Serif',
                                               fontSize: 25,
-                                              // fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.bold,
                                             ),),
                                             
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(170, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
                                             child: ListTile(
-                                              title: const Text("Twitter"),
+                                              title: const Text("Twitter/X", style: TextStyle(
+                                                fontSize: 20,
+                                                fontFamily: 'Noto Serif',
+                                              ),),
                                               onTap: () async{
-                                                final url = "https://github.com/Kay-kwaw";
-
-                                                if (await canLaunchUrl(url as Uri)){
-                                                  await launch(url, forceSafariVC: false);
-                                                }
+                                                _twitUrl();
                                               },
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(170, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
                                             child: ListTile(
-                                              title: const Text("Gmail"),
+                                              title: const Text("Gmail", style: TextStyle(
+                                                fontSize: 20,
+                                                fontFamily: 'Noto Serif',
+                                              ),),
                                               onTap: (){
-                                                _gmail();
+                                                _GmailUrl();
                                               },
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(170, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
                                             child: ListTile(
-                                              title: const Text("Github"),
+                                              title: const Text("Github",style: TextStyle(
+                                                fontSize: 20,
+                                                fontFamily: 'Noto Serif',
+                                              ),),
                                               onTap: (){
                                                 _launchUrl();
                                               },
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(170, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
                                             child: ListTile(
-                                              title: Text("Behance"),
-                                              onTap: (){
-                                                
+                                              title: const Text("Behance", style: TextStyle(
+                                                fontSize: 20,
+                                                fontFamily: 'Noto Serif',
+                                              ),),
+                                              onTap: () async{
+                                                _BehanceUrl();
                                               },
                                             ),
                                           ),
                                                   Padding(
-                                                   padding: EdgeInsetsDirectional.fromSTEB(190, 30, 0, 0),
+                                                   padding: EdgeInsetsDirectional.fromSTEB(180, 30, 0, 0),
                                                    child: ListTile(
                                                                leading: Icon(Icons.cancel), // Add a different icon here
                                                                title: Text(""),
                                                                iconColor: Colors.amber,
+
                                                                onTap: () {
                                                                 Navigator.pop(context);
                                                                },

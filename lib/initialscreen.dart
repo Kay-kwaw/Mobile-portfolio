@@ -1,6 +1,7 @@
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/homescreen.dart';
 
 
@@ -80,13 +81,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     borderRadius: BorderRadius.circular(15),
                     shape: BoxShape.rectangle,
                   ),
-                  child:  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                     child: InkWell(
                       onTap: () {
-                         Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomescreenWidget()),);
+                       Navigator.push(context, PageTransition(type: PageTransitionType.fade,duration: Duration(seconds: 3), child: HomescreenWidget()));
                       },
                       child: const Text(
                         'So',
@@ -104,10 +103,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomescreenWidget()),
-              );
+                
                   },
                   child: 
                   AnimatedTextKit(
