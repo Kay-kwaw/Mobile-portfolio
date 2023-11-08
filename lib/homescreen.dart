@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/initialscreen.dart';
+import 'package:portfolio/menu.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomescreenWidget extends StatefulWidget {
@@ -15,6 +16,17 @@ class HomescreenWidget extends StatefulWidget {
 }
 
 class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerProviderStateMixin{
+
+  AnimationController? _controller;
+  // ignore: unused_field
+  Animation? _colorAnimation;
+
+  bool isFav = false;
+
+
+
+
+
   final Uri _urlit = Uri.parse('https://twitter.com/KwawKumi');
   final Uri _urlb = Uri.parse('https://mail.google.com/mail/u/0/#inbox?compose=new');
   final Uri _url = Uri.parse('https://github.com/Kay-kwaw');
@@ -45,11 +57,37 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
 }
  
 
-  @override
+   @override
   void initState() {
     super.initState();
-   
+     _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _controller!.addListener(() {
+      setState(() {
+        print(_controller!.value);
+        print(_colorAnimation!.value);
+      });
+    });
+
+    _controller!.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+         isFav = true;
+      } else if (status == AnimationStatus.dismissed) {
+        isFav = false;
+      }
+    });
+
+    _colorAnimation = ColorTween(begin: Colors.amber, end: Colors.white).animate(_controller!);
     
+  }
+
+  @override
+  void dispose() {
+   
+
+    super.dispose();
   }
 
 
@@ -148,16 +186,21 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                             size: 24,
                                           ),
                                         ),
-                                        const Align(
+                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.84, 0.06),
-                                          child: Text(
-                                            'menu',
-                                            style: TextStyle(
-                                                  fontFamily: 'Readex Pro',
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                          child: InkWell(
+                                            onTap: () {
+Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 400), child: MyWidget()));
+                                            },
+                                            child: Text(
+                                              'menu',
+                                              style: TextStyle(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -365,12 +408,14 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                   ),
                                 ),
                               ),
-                              const Align(
-                                alignment: AlignmentDirectional(-0.69, 0.00),
-                                child: Icon(
-                                  Icons.album_rounded,
-                                  color: Colors.amber,
-                                  size: 15,
+                               Align(
+                                alignment: AlignmentDirectional(-0.99, 0.00),
+                                child: IconButton(
+                                  icon: Icon(Icons.album_rounded),
+                                  color:_colorAnimation?.value,
+                                  iconSize: 15, onPressed: () { 
+                                    isFav = !isFav;
+                                   },
                                 ),
                               ),
                             ],
