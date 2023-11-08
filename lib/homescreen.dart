@@ -1,4 +1,6 @@
 
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,9 +13,27 @@ class HomescreenWidget extends StatefulWidget {
 }
 
 class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerProviderStateMixin{
+  final Uri _url = Uri.parse('https://github.com/Kay-kwaw');
+  final Uri _urli = Uri.parse('https://twitter.com/home');
+  final Uri _urll = Uri.parse('https://github.com/Kay-kwaw');
+  final Uri _urlb = Uri.parse('https://github.com/Kay-kwaw');
  
 
-  final scaffoldKey = GlobalKey<ScaffoldState>();
+  Future<void> _launchUrl() async {
+  if (!await launchUrl(_url,)) {
+    throw Exception('Could not launch $_url');
+  }
+}
+  Future<void> _gmail() async {
+  if (!await launchUrl(_urli,)) {
+    throw Exception('Could not launch $_urli');
+  }
+}
+//   Future<void> _launchUrl() async {
+//   if (!await launchUrl(_url,)) {
+//     throw Exception('Could not launch $_url');
+//   }
+// }
 
   @override
   void initState() {
@@ -21,31 +41,11 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
    
     
   }
-  
-  void _launchGitHub() async {
-  const url = 'https://github.com';  // Replace with your GitHub URL
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
 
 
   @override
   Widget build(BuildContext context) {
-    // if (isiOS) {
-    //   SystemChrome.setSystemUIOverlayStyle(
-    //     SystemUiOverlayStyle(
-    //       statusBarBrightness: Theme.of(context).brightness,
-    //       systemStatusBarContrastEnforced: true,
-    //     ),
-    //   );
-    // }
-
     return Scaffold(
-      key: scaffoldKey,
       backgroundColor: Colors.black,
       body: AnimatedContainer(
         duration: Duration(milliseconds: 300),
@@ -279,8 +279,12 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                             padding: const EdgeInsetsDirectional.fromSTEB(170, 0, 0, 0),
                                             child: ListTile(
                                               title: const Text("Twitter"),
-                                              onTap: (){
-                                                
+                                              onTap: () async{
+                                                final url = "https://github.com/Kay-kwaw";
+
+                                                if (await canLaunchUrl(url as Uri)){
+                                                  await launch(url, forceSafariVC: false);
+                                                }
                                               },
                                             ),
                                           ),
@@ -289,7 +293,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                             child: ListTile(
                                               title: const Text("Gmail"),
                                               onTap: (){
-                                                
+                                                _gmail();
                                               },
                                             ),
                                           ),
@@ -298,7 +302,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                             child: ListTile(
                                               title: const Text("Github"),
                                               onTap: (){
-                                                "https://github.com/Kay-kwaw";
+                                                _launchUrl();
                                               },
                                             ),
                                           ),
@@ -336,7 +340,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                   ),
                                 ),
                               ),
-                              Align(
+                              const Align(
                                 alignment: AlignmentDirectional(-0.69, 0.00),
                                 child: Icon(
                                   Icons.album_rounded,
@@ -369,3 +373,5 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
     );
   }
 }
+
+
