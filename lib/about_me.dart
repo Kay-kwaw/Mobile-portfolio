@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:portfolio/homescreen.dart';
+import 'package:portfolio/initialscreen.dart';
+import 'package:portfolio/menu.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.black,
       body: 
          SafeArea(
@@ -13,10 +17,11 @@ class AboutMe extends StatelessWidget {
           children: [
             Align(
               alignment: AlignmentDirectional(0.91, -0.93),
-              child: Icon(
-                Icons.cancel_rounded,
+              child: IconButton(
+                icon: Icon(Icons.cancel_rounded),
                 color: Colors.white,
-                size: 28,
+                iconSize: 28,
+                onPressed: () => Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter, child: HomescreenWidget())),
               ),
             ),
             Align(

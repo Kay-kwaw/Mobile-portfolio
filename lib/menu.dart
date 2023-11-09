@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:portfolio/about_me.dart';
 import 'package:portfolio/homescreen.dart';
 import 'package:portfolio/initialscreen.dart';
 
@@ -19,7 +20,7 @@ class MyWidget extends StatelessWidget {
               alignment: AlignmentDirectional(-0.03, -0.36),
               child: InkWell(
                 onTap: () {
-Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter, child: MyWidget()));
+Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: AboutMe()));
   
                 },
                 child: const Text(
@@ -43,14 +44,20 @@ Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment
                 ),
               ),
             ),
-            const Align(
+             Align(
               alignment: AlignmentDirectional(-0.02, 0.07),
-              child: Text(
-                'Home',
-                style: TextStyle(
-                  fontFamily: 'PT Serif',
-                    fontSize: 28,
-                    color: Color.fromARGB(255, 128, 121, 121),
+              child: InkWell(
+                onTap: (){
+                 Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 400), child: HomescreenWidget()));
+
+                },
+                child: Text(
+                  'Home',
+                  style: TextStyle(
+                    fontFamily: 'PT Serif',
+                      fontSize: 28,
+                      color: Color.fromARGB(255, 128, 121, 121),
+                  ),
                 ),
               ),
             ),
