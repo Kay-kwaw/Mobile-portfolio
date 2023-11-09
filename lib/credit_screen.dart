@@ -13,7 +13,7 @@ class Creditscreen extends StatelessWidget {
         top: true,
         child: Stack(
           children: [
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.81, -0.73),
               child: Text(
                 'CREDITS',
@@ -49,14 +49,14 @@ class Creditscreen extends StatelessWidget {
                 },
               ),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.1, -0.30),
               child: Text("This design concept is inspired by the works of\nSamuel Osei",style: TextStyle(
                 color: Colors.white,
                 fontSize: 16
               ),),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.50, -0.1),
               child: Text(
                 'DEVELOPMENT & ANIMATION',
@@ -68,14 +68,14 @@ class Creditscreen extends StatelessWidget {
                         ),
               ),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.83, -0.0),
               child: Text("Myself",style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
               ),),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.80, 0.2),
               child: Text(
                 'TOOLS',
@@ -87,14 +87,14 @@ class Creditscreen extends StatelessWidget {
                         ),
               ),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.80, 0.29),
               child: Text("Flutter",style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
               ),),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.80, 0.46),
               child: Text(
                 'TYPEFACE',
@@ -106,7 +106,7 @@ class Creditscreen extends StatelessWidget {
                         ),
               ),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.75, 0.56),
               child: Text("Readex Pro, PT Serif",style: TextStyle(
                 color: Colors.white,
