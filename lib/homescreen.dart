@@ -1,5 +1,4 @@
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -228,32 +227,18 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                       ),
                 ),
               ),
-               Flexible(
+              const Flexible(
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 70),
-                  child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      'I\'M THE TOURCH\n          THAT\nILLUMINATES\nTHE MOBILE WITH\n  CAPTIVATING \n   EXPERIENCES',
-                      textAlign: TextAlign.end,
-                      textStyle: const TextStyle(
-                        fontFamily: 'PT Serif',
-                        color: Colors.amber,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800,
-                      ),
-                      speed: const Duration(milliseconds: 20),
-                    ),
-                    //   'I\'M THE TOURCH\n          THAT\nILLUMINATES\nTHE MOBILE WITH\n  CAPTIVATING \n  EXPERIENCES',
-                    // textAlign: TextAlign.end,
-                    // style: TextStyle(
-                    //       fontFamily: 'PT Serif',
-                    //       color: Colors.amber,
-                    //       fontSize: 30,
-                    //       fontWeight: FontWeight.w800,
-                    //     ),
-                  ]
-                  
+                  child: Text(
+                    'I\'M THE TOURCH\n          THAT\nILLUMINATES\nTHE MOBILE WITH\n  CAPTIVATING \n  EXPERIENCES',
+                    textAlign: TextAlign.end,
+                    style: TextStyle(
+                          fontFamily: 'PT Serif',
+                          color: Colors.amber,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w800,
+                        ),
                   ),
                 ),
               ),

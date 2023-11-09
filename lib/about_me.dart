@@ -3,6 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/homescreen.dart';
 import 'package:portfolio/initialscreen.dart';
 import 'package:portfolio/menu.dart';
+import 'package:portfolio/mywork.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -24,7 +25,7 @@ class AboutMe extends StatelessWidget {
                 onPressed: () => Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter, child: HomescreenWidget())),
               ),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.88, -0.92),
               child: Text(
                 'see',
@@ -33,15 +34,18 @@ class AboutMe extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+             Align(
               alignment: AlignmentDirectional(-0.67, -0.92),
-              child: Text(
-                'MY WORKS',
-                style: TextStyle(
-                      fontFamily: 'Readex Pro',
-                      color: Colors.amber,
-                      fontWeight: FontWeight.bold,
-                    ),
+              child: InkWell(
+                onTap: () => Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: MyWork())),
+                child: Text(
+                  'MY WORKS',
+                  style: TextStyle(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
               ),
             ),
             Align(

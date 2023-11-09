@@ -3,6 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:portfolio/about_me.dart';
 import 'package:portfolio/homescreen.dart';
 import 'package:portfolio/initialscreen.dart';
+import 'package:portfolio/mywork.dart';
 
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key});
@@ -33,14 +34,20 @@ Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment
                 ),
               ),
             ),
-            const Align(
+             Align(
               alignment: AlignmentDirectional(-0.04, -0.15),
-              child: Text(
-                'My Works',
-                style: TextStyle(
-                  fontFamily: 'PT Serif',
-                    fontSize: 28,
-                    color: Color.fromARGB(255, 128, 121, 121),
+              child: InkWell(
+                onTap: () {
+Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: MyWork()));
+
+                },
+                child: const Text(
+                  'My Works',
+                  style: TextStyle(
+                    fontFamily: 'PT Serif',
+                      fontSize: 28,
+                      color: Color.fromARGB(255, 128, 121, 121),
+                  ),
                 ),
               ),
             ),
