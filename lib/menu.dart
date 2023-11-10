@@ -21,7 +21,7 @@ class MyWidget extends StatelessWidget {
               alignment: AlignmentDirectional(-0.03, -0.36),
               child: InkWell(
                 onTap: () {
-Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: AboutMe()));
+Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 400), child: const AboutMe()));
   
                 },
                 child: const Text(

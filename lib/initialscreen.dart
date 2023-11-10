@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -13,6 +15,10 @@ class HomePageWidget extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
+  double _width = 234; 
+  double _height = 58;
+  Color _color = Colors.amber;
+  BorderRadiusGeometry _borderRadius = BorderRadius.circular(20);
   
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -51,18 +57,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 300),
-                          child: Container(
-                            width: 234,
-                            height: 58,
-                            decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Icon(
-                              Icons.fiber_smart_record,
-                              color: Colors.black,
-                              size: 24,
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 300),
+                          child: AnimatedContainer(
+                            duration: const Duration(seconds: 1),
+                            curve: Curves.fastOutSlowIn,
+                            child: Container(
+                              width: _width,
+                              height: _height,
+                              decoration: BoxDecoration(
+                                color: _color,
+                                borderRadius: _borderRadius,
+                              ),
+                              child: const Icon(
+                                Icons.fiber_smart_record,
+                                color: Colors.black,
+                                size: 24,
+                              ),
                             ),
                           ),
                         ),
@@ -72,7 +82,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                 child: Container(
                   width: 77,
                   height: 68,
@@ -85,7 +95,26 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                     child: InkWell(
                       onTap: () {
-                       Navigator.push(context, PageTransition(type: PageTransitionType.fade,duration: Duration(seconds: 3), child: HomescreenWidget()));
+                        setState(() {
+                           // Create a random number generator
+                          final random = Random();
+
+                          // Generate a random width and height.
+                           _width = random.nextInt(300).toDouble();
+                           _height = random.nextInt(300).toDouble();
+
+                            _color = Color.fromRGBO(
+                            random.nextInt(256),
+                            random.nextInt(256),
+                            random.nextInt(256),
+                            1,
+                            
+      );
+      // Generate a random border radius.
+      _borderRadius =
+          BorderRadius.circular(random.nextInt(100).toDouble());
+                        });
+                       Navigator.push(context, PageTransition(type: PageTransitionType.fade,duration: Duration(seconds: 2), child: HomescreenWidget()));
                       },
                       child: const Text(
                         'So',

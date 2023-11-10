@@ -38,7 +38,7 @@ class AboutMe extends StatelessWidget {
               alignment: AlignmentDirectional(-0.67, -0.92),
               child: InkWell(
                 onTap: () => Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: MyWork())),
-                child: Text(
+                child: const Text(
                   'MY WORKS',
                   style: TextStyle(
                         fontFamily: 'Readex Pro',

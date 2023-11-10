@@ -158,7 +158,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                                     .fromSTEB(15, 15, 0, 0),
                                                 child: InkWell(
                                                   onTap: () {
-                                                    Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomPop,duration: Duration(seconds: 3), child: const HomePageWidget(), childCurrent: this.widget ));
+                                                    Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomPop,duration: Duration(milliseconds: 300), child: const HomePageWidget(), childCurrent: this.widget ));
 
                                                   },
                                                   child: const Text(

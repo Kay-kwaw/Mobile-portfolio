@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:portfolio/about_me.dart';
+import 'package:portfolio/homescreen.dart';
+import 'package:portfolio/initialscreen.dart';
 
 class MyWork extends StatelessWidget {
   const MyWork({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
         top: true,
@@ -13,13 +17,17 @@ class MyWork extends StatelessWidget {
           children: [
             Align(
               alignment: AlignmentDirectional(0.91, -0.93),
-              child: Icon(
-                Icons.cancel_rounded,
+              child: IconButton(
+                icon: Icon(Icons.cancel_rounded),
                 color: Colors.white,
-                size: 28,
+                iconSize: 28,
+                onPressed: (){
+                  Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 400), child: const HomescreenWidget()));
+
+                },
               ),
             ),
-            Align(
+            const Align(
               alignment: AlignmentDirectional(-0.88, -0.92),
               child: Text(
                 'read',
@@ -31,12 +39,18 @@ class MyWork extends StatelessWidget {
             ),
             Align(
               alignment: AlignmentDirectional(-0.64, -0.92),
-              child: Text(
-                'ABOUT ME',
-                style: TextStyle(
-                      fontFamily: 'Readex Pro',
-                      color: Colors.amber,
-                    ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: AboutMe()));
+
+                },
+                child: const Text(
+                  'ABOUT ME',
+                  style: TextStyle(
+                        fontFamily: 'Readex Pro',
+                        color: Colors.amber,
+                      ),
+                ),
               ),
             ),
             Align(
@@ -55,7 +69,9 @@ class MyWork extends StatelessWidget {
               alignment: AlignmentDirectional(-0.65, -0.49),
               child: Text(
                 'THIS is the version 1.0 of my portfolio. ',
-                style: TextStyle(),
+                style: TextStyle(
+                  color: Colors.white
+                ),
               ),
             ),
             Align(
@@ -88,7 +104,9 @@ class MyWork extends StatelessWidget {
                 padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                 child: Text(
                   'For More of my works see my GITHUB or BEHANCE',
-                  style: TextStyle(),
+                  style: TextStyle(
+                    color: Colors.white
+                  ),
                 ),
               ),
             ),
@@ -104,18 +122,22 @@ class MyWork extends StatelessWidget {
                     ),
               ),
             ),
-            Align(
-              alignment: AlignmentDirectional(-0.25, -0.36),
+            const Align(
+              alignment: AlignmentDirectional(-0.35, -0.36),
               child: Text(
                 'Designer & Mobile Developer',
-                style: TextStyle(),
+                style: TextStyle(
+                  color: Colors.white
+                ),
               ),
             ),
-            Align(
-              alignment: AlignmentDirectional(-0.34, -0.19),
+            const Align(
+              alignment: AlignmentDirectional(-0.50, -0.19),
               child: Text(
                 'Flutter, MySQL, Swift, UI/Ux, Html, Css, Django',
-                style: TextStyle(),
+                style: TextStyle(
+                  color: Colors.white
+                ),
               ),
             ),
           ],
