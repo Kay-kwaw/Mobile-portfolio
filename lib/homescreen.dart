@@ -286,7 +286,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 120),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 120),
                 child: Container(
                   width: 167,
                   height: 36,
@@ -327,7 +327,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                         children: [
                                           const Padding(
                                             padding: EdgeInsets.all(10.0),
-                                            child: Text("YOU CAN REACH ME \n            HERE",
+                                            child: Text("YOU CAN REACH ME \n              HERE",
                                              style: TextStyle(
                                               fontFamily: 'Noto Serif',
                                               fontSize: 25,
@@ -336,7 +336,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                             
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(140, 0, 0, 0),
                                             child: ListTile(
                                               title: const Text("Twitter/X", style: TextStyle(
                                                 fontSize: 20,
@@ -348,7 +348,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(140, 0, 0, 0),
                                             child: ListTile(
                                               title: const Text("Gmail", style: TextStyle(
                                                 fontSize: 20,
@@ -360,7 +360,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(140, 0, 0, 0),
                                             child: ListTile(
                                               title: const Text("Github",style: TextStyle(
                                                 fontSize: 20,
@@ -372,7 +372,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                             ),
                                           ),
                                           Padding(
-                                            padding: const EdgeInsetsDirectional.fromSTEB(150, 0, 0, 0),
+                                            padding: const EdgeInsetsDirectional.fromSTEB(140, 0, 0, 0),
                                             child: ListTile(
                                               title: const Text("Behance", style: TextStyle(
                                                 fontSize: 20,
@@ -384,7 +384,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                             ),
                                           ),
                                                   Padding(
-                                                   padding: EdgeInsetsDirectional.fromSTEB(180, 30, 0, 0),
+                                                   padding: EdgeInsetsDirectional.fromSTEB(170, 30, 0, 0),
                                                    child: ListTile(
                                                                leading: Icon(Icons.cancel), // Add a different icon here
                                                                title: Text(""),
@@ -415,8 +415,8 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                   icon: Icon(Icons.album_rounded),
                                   color:_colorAnimation?.value,
                                   iconSize: 15, onPressed: () { 
-                                   if (isFav) {
-                                      _controller!.reverse();
+                                    if (isFav) {
+                                      _controller!.repeat();
                                     } else {
                                       _controller!.repeat();
                                     }

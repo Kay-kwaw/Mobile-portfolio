@@ -41,7 +41,7 @@ class MyWork extends StatelessWidget {
               alignment: AlignmentDirectional(-0.64, -0.92),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(seconds: 2), child: AboutMe()));
+                  Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter,duration: Duration(milliseconds: 700), child: AboutMe()));
 
                 },
                 child: const Text(
