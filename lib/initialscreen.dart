@@ -101,20 +101,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                           // Generate a random width and height.
                            _width = random.nextInt(300).toDouble();
-                           _height = random.nextInt(300).toDouble();
+                          
 
-                            _color = Color.fromRGBO(
-                            random.nextInt(256),
-                            random.nextInt(256),
-                            random.nextInt(256),
-                            1,
-                            
-      );
+                            _color = Colors.amber;
       // Generate a random border radius.
       _borderRadius =
-          BorderRadius.circular(random.nextInt(100).toDouble());
+          BorderRadius.circular(random.nextInt(300).toDouble());
                         });
-                       Navigator.push(context, PageTransition(type: PageTransitionType.fade,duration: Duration(seconds: 2), child: HomescreenWidget()));
+                       Navigator.push(context, PageTransition(type: PageTransitionType.fade,duration: const Duration(seconds: 1), child: HomescreenWidget()));
                       },
                       child: const Text(
                         'So',

@@ -194,7 +194,7 @@ class _HomescreenWidgetState extends State<HomescreenWidget>  with SingleTickerP
                                             onTap: () {
 Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: Duration(milliseconds: 400), child: MyWidget()));
                                             },
-                                            child: Text(
+                                            child: const Text(
                                               'menu',
                                               style: TextStyle(
                                                     fontFamily: 'Readex Pro',
@@ -229,9 +229,9 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
               ),
               const Flexible(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 70),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                   child: Text(
-                    'I\'M THE TOURCH\n          THAT\nILLUMINATES\nTHE MOBILE WITH\n  CAPTIVATING \n  EXPERIENCES',
+                    'I\'M THE TOURCH\n          THAT\nILLUMINATES\nTHE MOBILE WITH\n  CAPTIVATING \n EXPERIENCES',
                     textAlign: TextAlign.end,
                     style: TextStyle(
                           fontFamily: 'PT Serif',
@@ -286,7 +286,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 120),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 120),
                 child: Container(
                   width: 167,
                   height: 36,
@@ -415,7 +415,11 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, duration: 
                                   icon: Icon(Icons.album_rounded),
                                   color:_colorAnimation?.value,
                                   iconSize: 15, onPressed: () { 
-                                    isFav = !isFav;
+                                   if (isFav) {
+                                      _controller!.reverse();
+                                    } else {
+                                      _controller!.repeat();
+                                    }
                                    },
                                 ),
                               ),

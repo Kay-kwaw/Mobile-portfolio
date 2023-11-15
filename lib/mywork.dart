@@ -16,9 +16,9 @@ class MyWork extends StatelessWidget {
         child: Stack(
           children: [
             Align(
-              alignment: AlignmentDirectional(0.91, -0.93),
+              alignment: const AlignmentDirectional(0.91, -0.93),
               child: IconButton(
-                icon: Icon(Icons.cancel_rounded),
+                icon: const Icon(Icons.cancel_rounded),
                 color: Colors.white,
                 iconSize: 28,
                 onPressed: (){
